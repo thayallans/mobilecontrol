@@ -1,3 +1,5 @@
+const https = require('https');
+const fs = require('fs');
 const { WebSocketServer } = require('ws');
 
 // read ssl certificate
