@@ -15,7 +15,7 @@ const certificate = fs.readFileSync(
 const credentials = { key: privateKey, cert: certificate };
 
 const httpsServer = https.createServer(credentials);
-httpsServer.listen(8082);
+httpsServer.listen(8080);
 
 const wss = new WebSocketServer({
 	server: httpsServer,
