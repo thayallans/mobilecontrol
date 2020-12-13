@@ -1,6 +1,6 @@
 const https = require('https');
 const fs = require('fs');
-const { WebSocketServer } = require('ws');
+const WebSocketServer = require('ws').Server;
 
 // read ssl certificate
 const privateKey = fs.readFileSync(
