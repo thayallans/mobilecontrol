@@ -4,13 +4,15 @@ const { WebSocketServer } = require('ws');
 
 // read ssl certificate
 const privateKey = fs.readFileSync(
-	'../etc/letsencrypt/live/mobilecontrol.club/privkey.pem',
+	'/etc/letsencrypt/live/mobilecontrol.club/privkey.pem',
 	'utf8'
 );
 const certificate = fs.readFileSync(
-    '../etc/letsencrypt/live/mobilecontrol.club/cert.pem',
+    '/etc/letsencrypt/live/mobilecontrol.club/cert.pem',
 	'utf8'
 );
+
+const credentials = { key: privateKey, cert: certificate };
 
 const httpsServer = https.createServer(credentials);
 httpsServer.listen(8082);
