@@ -1,25 +1,15 @@
-const https = require('https');
+const https = require('http');
 const fs = require('fs');
 const WebSocketServer = require('ws').Server;
 
-// read ssl certificate
-const privateKey = fs.readFileSync(
-	'/etc/letsencrypt/live/mobilecontrol.club/privkey.pem',
-	'utf8'
-);
-const certificate = fs.readFileSync(
-    '/etc/letsencrypt/live/mobilecontrol.club/cert.pem',
-	'utf8'
-);
-
-const credentials = { key: privateKey, cert: certificate };
-
-const httpsServer = https.createServer(credentials);
+const httpsServer = https.createServer();
 httpsServer.listen(8080);
 
 const wss = new WebSocketServer({
 	server: httpsServer,
 });
+
+console.log(wss);
 
 wss.on('connection', (ws, req) => {
 	console.log('Connection Opened');
