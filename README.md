@@ -1,2 +1,2 @@
 # mobilecontrol
-Adds support to Stadia to use your phone as a controller.
+Adds support to Chrome to use your phone as a controller.
